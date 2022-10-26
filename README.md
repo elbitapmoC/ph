@@ -1,6 +1,6 @@
 # Assignment / Mission
 
-![ImageHiddenTemporarily](https://user-images.githubusercontent.com/11306948/197881669-7b9df1f7-4bc5-4c62-a6d5-3f7712797cd5.NO)
+![ImageHiddenTemporarily](https://user-images.githubusercontent.com/11306948/197881669-7b9df1f7-4bc5-4c62-a6d5-3f7712797cd5.jpg)
 
 Create a React frontend powered by the given Node.js backend that allows users to view, create, and update patients and prescriptions. There are two groups of users that will interact with this tool, `Providers` and `Pharmacist's`
 
