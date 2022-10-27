@@ -1,0 +1,19 @@
+/* The pill is small enough to where we don't need to add any media queries.
+Pills fit on iPhone 12 to Galazy S10 */
+.pill {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  width: 134px;
+  height: 278px;
+  background-color: bisque;
+  border-radius: 10rem;
+  transition: all 0.3s ease-in-out; // smooth transition for hover effect and font change.
+  &:hover {
+    transform: translateY(-0.5rem);
+    filter: drop-shadow(0px 25px 10px rgba(0, 0, 0, 0.01))
+      drop-shadow(0px 14px 8px rgba(0, 0, 0, 0.05))
+      drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.1))
+      drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+  }
+}
