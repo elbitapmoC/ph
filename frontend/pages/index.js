@@ -1,6 +1,5 @@
 import Heading from "../components/Heading/Heading";
-import Nav from "../components/Nav/Nav";
-import Footer from "../components/Footer/Footer";
+import Page from "../components/Page/Page";
 import Subtitle from "../components/Subtitle/Subtitle";
 import Title from "../components/Title/Title";
 import Pill from "../components/Pill/Pill";
@@ -10,9 +9,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <section className="container">
-      <Heading />
-      <Nav />
+    <Page>
+      <Heading title={`Photon Health | ${String.fromCodePoint(0x2624)}`} />
       <main className="main">
         <aside>
           <Subtitle text="next-gen prescriptions" />
@@ -45,7 +43,6 @@ export default function Home() {
           <Tip text="Hover over pills for details.." />
         </aside>
       </main>
-      <Footer />
-    </section>
+    </Page>
   );
 }

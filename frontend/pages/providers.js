@@ -1,19 +1,16 @@
 import Heading from "../components/Heading/Heading";
-import Nav from "../components/Nav/Nav";
-import Footer from "../components/Footer/Footer";
 import Tip from "../components/Tip/Tip";
+import Page from "../components/Page/Page";
 
-export default function providers() {
+export default function ProvidersPage() {
   return (
-    <section className="container">
-      <Heading />
-      <Nav />
+    <Page>
+      <Heading title={`${String.fromCodePoint(0x2624)} | Providers`} />
       <main className="main">
         <aside>
           <Tip text="Providers ONLY" />
         </aside>
       </main>
-      <Footer />
-    </section>
+    </Page>
   );
 }

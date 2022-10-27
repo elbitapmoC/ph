@@ -1,9 +1,9 @@
 import Head from "next/head";
 
-const Heading = () => {
+const Heading = ({ title }) => {
   return (
     <Head>
-      <title> Photon Health | &#9764; </title>
+      <title>{title}</title>
       <meta name="description" content="Photon Health Dashboard" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
