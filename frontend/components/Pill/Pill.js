@@ -15,7 +15,7 @@ const Pill = ({ text, label, position, imgSource }) => {
 
 Pill.defaultProps = {
   label: "Ace",
-  position: "left",
+  position: "top",
 };
 
 export default Pill;
