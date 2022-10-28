@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import Heading from "../components/Heading/Heading";
 import Tip from "../components/Tip/Tip";
+import axios from "axios";
 
 export default function PharmacistsPage() {
   return (
