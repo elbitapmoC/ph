@@ -7,6 +7,7 @@ import axios from "axios";
 const baseURL = "http://localhost:4000/prescriptions";
 
 export default function PharmacistsPage() {
+  // Get prescription from patients...
   const [prescriptions, setPrescriptions] = useState(null);
 
   useEffect(() => {

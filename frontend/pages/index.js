@@ -21,7 +21,7 @@ export default function Home() {
                 <Pill
                   text="Provider"
                   label="Create new patients & write prescriptions.
-                See patients and their previously written prescription status'."
+                See patients and their prescriptions."
                   position="left"
                   imgSource="/images/provider.jpg"
                 />
@@ -31,7 +31,7 @@ export default function Home() {
               <Link href="/pharmacists">
                 <Pill
                   text="Pharmacist"
-                  label="See prescriptions and change prescription status'."
+                  label="See prescriptions and change their status' (pending, wip, or filled)"
                   position="right"
                   imgSource="/images/pharmacist.jpg"
                 />
