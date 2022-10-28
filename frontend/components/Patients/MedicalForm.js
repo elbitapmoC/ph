@@ -68,6 +68,18 @@ const PatientForm = () => {
             <option>IP (intraperitoneal)</option>
           </Select>
         </FormControl>
+
+        <FormControl isDisabled>
+          <FormLabel>Progress</FormLabel>
+          <Select
+            placeholder="Prescription Fulfillment Status"
+            defaultValue="pending"
+          >
+            <option value="pending">Pending</option>
+            <option value="wip">WIP (Work in Progress)</option>
+            <option value="filled">Filled</option>
+          </Select>
+        </FormControl>
       </VStack>
     </>
   );
