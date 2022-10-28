@@ -28,6 +28,10 @@ app.get("/patients", (req, res) => {
   res.json(Object.values(database.patients));
 });
 
+app.get("/prescriptions", (req, res) => {
+  res.json(Object.values(database.prescriptions));
+});
+
 app.get("/patients/:id", (req, res) => {
   const value = database.patients[req.params.id];
   if (value) {
