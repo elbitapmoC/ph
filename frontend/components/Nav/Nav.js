@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Nav.module.css";
 
 const Nav = () => {
   return (
-    <nav className={styles.nav}>
+    <nav className="flex justify-center mb-24 pt-16">
       <Link href="/">
         <Image
           src="/icons/ph-logo.svg"
