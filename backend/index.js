@@ -1,14 +1,23 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 
+const cors = require("cors");
+
 const app = express();
-app.use(express.json());
-const port = 3001;
+app.use(
+  cors({
+    origin: "*",
+  }),
+  express.json()
+);
+
+const port = 4000;
 
 const database = {
   patients: {},
   prescriptions: {},
 };
+
 app.get("/", (req, res) => {
   res.json({
     message: "hello world!",

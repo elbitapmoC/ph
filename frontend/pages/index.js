@@ -21,7 +21,7 @@ export default function Home() {
                 <Pill
                   text="Provider"
                   label="Create new patients & write prescriptions.
-                See patients and their prescription status'."
+                See patients and their previously written prescription status'."
                   position="left"
                   imgSource="/images/provider.jpg"
                 />
