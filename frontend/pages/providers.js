@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useQuery } from "react-query";
 import {
   Table,
   Thead,
@@ -16,14 +15,18 @@ import Heading from "../components/Heading/Heading";
 const baseURL = "http://localhost:4000/patients";
 
 export default function ProvidersPage() {
-  const [patients, setPatients] = useState([]);
+  console.count("How many times?");
+  const { isLoading, isError, data, error } = useQuery("patientData", () =>
+    fetch(baseURL).then((res) => res.json())
+  );
 
-  // ✅ - Load all from the backend.
-  useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPatients(response.data);
-    });
-  }, []);
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
 
   // Cost of poor prescription writing === 1.3M injured & 7,000 deaths.
   // Source: https://medicalschoolhq.net/prescription-writing-101/
@@ -34,7 +37,7 @@ export default function ProvidersPage() {
       <main className="main">
         <TableContainer>
           <Patients />
-          {patients.length > 0 && (
+          {data && (
             <Table variant="simple" colorScheme="blackAlpha">
               <TableCaption>Patient Information (Providers)</TableCaption>
               <Thead>
@@ -45,17 +48,15 @@ export default function ProvidersPage() {
                 </Tr>
               </Thead>
               <Tbody>
-                {patients?.map(
-                  ({ id, firstName, lastName, month, day, year }) => (
-                    <tr key={id}>
-                      <Td>{firstName}</Td>
-                      <Td>{lastName}</Td>
-                      <Td isNumeric>
-                        {month}/{day}/{year}
-                      </Td>
-                    </tr>
-                  )
-                )}
+                {data?.map(({ id, firstName, lastName, month, day, year }) => (
+                  <tr key={id}>
+                    <Td>{firstName}</Td>
+                    <Td>{lastName}</Td>
+                    <Td isNumeric>
+                      {month}/{day}/{year}
+                    </Td>
+                  </tr>
+                ))}
               </Tbody>
             </Table>
           )}

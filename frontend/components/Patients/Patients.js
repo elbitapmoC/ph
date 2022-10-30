@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useMutation } from "react-query";
 
 import {
   FormControl,
@@ -11,8 +12,6 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  Radio,
-  RadioGroup,
   NumberDecrementStepper,
   Modal,
   ModalOverlay,
@@ -24,7 +23,6 @@ import {
   useDisclosure,
   Button,
   Select,
-  Stack,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
@@ -38,8 +36,12 @@ export default function Patients() {
     formState: { isSubmitting },
   } = useForm();
 
+  const mutation = useMutation((data) => {
+    return axios.post(baseURL, data);
+  });
+
   const onSubmit = (data) => {
-    axios.post(baseURL, data).then((response) => {});
+    mutation.mutate(data);
     onClose();
   };
 
