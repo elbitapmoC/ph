@@ -24,3 +24,7 @@ In order to run the backend, you must follow these steps:
 1. [Ensure npm and node.js are installed](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 2. Once installed, run `npm install` within the backend directory to install the required dependencies
 3. Afterwards, run `npm run start` and the backend server should be reachable at [localhost:3000](http://localhost:3000)
+
+Future Updates:
+
+- Notify users for next refill (Assuming they're consistently dosing)

@@ -36,7 +36,7 @@ export default function ProvidersPage() {
     <>
       <Heading title={`${String.fromCodePoint(0x2624)} | Providers`} />
       <main className="main">
-        <TableContainer style={{ position: "relative" }}>
+        <TableContainer>
           <Patients />
           <Table variant="simple" colorScheme="blackAlpha">
             <TableCaption>Patient Information (Providers)</TableCaption>
@@ -48,48 +48,20 @@ export default function ProvidersPage() {
                 <Th>Medication</Th>
                 <Th isNumeric>Strength (mg)</Th>
                 <Th>Frequency</Th>
-                {/* 
-                daily (no abbreviation)
-                every other day (no abbreviation)
-                BID/b.i.d. (twice a day)
-                TID/t.id. (three times a day)
-                QID/q.i.d. (four times a day)
-                QHS (every bedtime)
-                Q4h (every 4 hours)
-                Q4-6h (every 4 to 6 hours)
-                QWK (every week) 
-                */}
-
                 <Th>Route</Th>
-                {/* 
-                PO (by mouth)
-                PR (per rectum)
-                IM (intramuscular)
-                IV (intravenous)
-                ID (intradermal)
-                IN (intranasal)
-                TP (topical)
-                SL (sublingual)
-                BUCC (buccal)
-                IP (intraperitoneal)
-                */}
+                <Th>Status</Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td>inches</Td>
-                <Td>millimetres (mm)</Td>
-                <Td isNumeric>25.4</Td>
-              </Tr>
-              <Tr>
-                <Td>feet</Td>
-                <Td>centimetres (cm)</Td>
-                <Td isNumeric>30.48</Td>
-              </Tr>
-              <Tr>
-                <Td>yards</Td>
-                <Td>metres (m)</Td>
-                <Td isNumeric>0.91444</Td>
+                <Td>Crash</Td>
+                <Td>Bandicoot</Td>
+                <Td isNumeric>09/09/1996</Td>
+                <Td>Apples</Td>
+                <Td>50</Td>
+                <Td>Daily</Td>
+                <Td>Oral</Td>
+                <Td>Pending</Td>
               </Tr>
             </Tbody>
           </Table>
