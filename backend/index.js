@@ -57,12 +57,13 @@ app.post("/patients", (req, res) => {
     res.status(400).send("Error: Missing required fields");
   }
   const id = uuidv4();
+
   database.patients[id] = {
     id,
     firstName,
     lastName,
-    month,
-    day,
+    month: month < 10 ? 0 + month : month,
+    day: day < 10 ? 0 + day : day,
     year,
   };
 
