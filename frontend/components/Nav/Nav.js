@@ -10,6 +10,7 @@ const Nav = () => {
           alt="Logo, Photon Health"
           height={30}
           width={140}
+          priority
         />
       </Link>
     </nav>

@@ -40,6 +40,17 @@ app.get("/patients/:id", (req, res) => {
   res.sendStatus(404);
 });
 
+app.patch("/prescription/:id", (req, res) => {
+  console.log("req", req);
+  console.log("res", res);
+
+  //   const todo = todos.find(todo => todo.id == req.params.id);
+  //   if (!todo) return res.sendStatus(404);
+  //   todo.completed = !todo.completed;
+  //   res.json(todo);
+  // res.sendStatus(404);
+});
+
 app.post("/patients", (req, res) => {
   const {
     firstName,

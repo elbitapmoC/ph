@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+
 import {
   Table,
   Thead,
@@ -15,7 +16,6 @@ import Heading from "../components/Heading/Heading";
 const baseURL = "http://localhost:4000/patients";
 
 export default function ProvidersPage() {
-  console.count("How many times?");
   const { isLoading, isError, data, error } = useQuery("patientData", () =>
     fetch(baseURL).then((res) => res.json())
   );
