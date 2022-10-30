@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import {
   FormControl,
   FormLabel,
@@ -24,8 +26,9 @@ import {
   Select,
   Stack,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
+
+const baseURL = "http://localhost:4000/patients";
 
 export default function Patients() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,13 +39,13 @@ export default function Patients() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.table(data);
+    axios.post(baseURL, data).then((response) => {});
     onClose();
   };
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme="messenger" variant="outline" mb={4}>
+      <Button onClick={onOpen} colorScheme="messenger" variant="outline" mb={6}>
         Add Patient
       </Button>
 
@@ -148,12 +151,8 @@ export default function Patients() {
                 </Grid>
 
                 <FormControl isRequired>
-                  <FormLabel>Frequency</FormLabel>
-                  <Select
-                    placeholder="How often to take medicine"
-                    id="frequency"
-                    {...register("frequency")}
-                  >
+                  <FormLabel>Frequency (How often to take medicine)</FormLabel>
+                  <Select id="frequency" {...register("frequency")}>
                     <option>Daily</option>
                     <option>Every Other Day</option>
                     <option>BID/b.i.d. (2x/Day)</option>
@@ -167,12 +166,8 @@ export default function Patients() {
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel>Route</FormLabel>
-                  <Select
-                    placeholder="How to take medicine"
-                    id="route"
-                    {...register("route")}
-                  >
+                  <FormLabel>Route (How to take medicine)</FormLabel>
+                  <Select id="route" {...register("route")}>
                     <option>PO (by mouth)</option>
                     <option>PR (per rectum)</option>
                     <option>IM (intramuscular)</option>
@@ -188,22 +183,11 @@ export default function Patients() {
 
                 <FormControl isRequired>
                   <FormLabel>Progress</FormLabel>
-
-                  <RadioGroup
-                    defaultValue="1"
-                    id="progress"
-                    {...register("progress")}
-                  >
-                    <Stack spacing={4} direction="row">
-                      <Radio value="1">Pending</Radio>
-                      <Radio value="2" isDisabled>
-                        WIP (work in progress)
-                      </Radio>
-                      <Radio value="3" isDisabled>
-                        Filled
-                      </Radio>
-                    </Stack>
-                  </RadioGroup>
+                  <Select id="progress" {...register("progress")}>
+                    <option>Pending</option>
+                    <option disabled>WIP (work in progress)</option>
+                    <option disabled>Filled</option>
+                  </Select>
                 </FormControl>
               </VStack>
               <Button

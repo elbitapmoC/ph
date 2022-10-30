@@ -9,10 +9,6 @@ import {
   Td,
   TableCaption,
   TableContainer,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
 } from "@chakra-ui/react";
 import Patients from "../components/Patients/Patients";
 import Heading from "../components/Heading/Heading";
@@ -20,12 +16,12 @@ import Heading from "../components/Heading/Heading";
 const baseURL = "http://localhost:4000/patients";
 
 export default function ProvidersPage() {
-  const [patients, setPatients] = useState(null);
+  const [patients, setPatients] = useState([]);
 
   // ✅ - Load all from the backend.
   useEffect(() => {
     axios.get(baseURL).then((response) => {
-      console.log(response.data);
+      setPatients(response.data);
     });
   }, []);
 
@@ -38,33 +34,31 @@ export default function ProvidersPage() {
       <main className="main">
         <TableContainer>
           <Patients />
-          <Table variant="simple" colorScheme="blackAlpha">
-            <TableCaption>Patient Information (Providers)</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>First Name</Th>
-                <Th>Last Name</Th>
-                <Th>Date of Birth</Th>
-                <Th>Medication</Th>
-                <Th isNumeric>Strength (mg)</Th>
-                <Th>Frequency</Th>
-                <Th>Route</Th>
-                <Th>Status</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Crash</Td>
-                <Td>Bandicoot</Td>
-                <Td isNumeric>09/09/1996</Td>
-                <Td>Apples</Td>
-                <Td>50</Td>
-                <Td>Daily</Td>
-                <Td>Oral</Td>
-                <Td>Pending</Td>
-              </Tr>
-            </Tbody>
-          </Table>
+          {patients.length > 0 && (
+            <Table variant="simple" colorScheme="blackAlpha">
+              <TableCaption>Patient Information (Providers)</TableCaption>
+              <Thead>
+                <Tr>
+                  <Th>First Name</Th>
+                  <Th>Last Name</Th>
+                  <Th>Date of Birth</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {patients?.map(
+                  ({ id, firstName, lastName, month, day, year }) => (
+                    <tr key={id}>
+                      <Td>{firstName}</Td>
+                      <Td>{lastName}</Td>
+                      <Td isNumeric>
+                        {month}/{day}/{year}
+                      </Td>
+                    </tr>
+                  )
+                )}
+              </Tbody>
+            </Table>
+          )}
         </TableContainer>
       </main>
     </>

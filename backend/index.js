@@ -41,7 +41,18 @@ app.get("/patients/:id", (req, res) => {
 });
 
 app.post("/patients", (req, res) => {
-  const { firstName, lastName } = req.body || {};
+  const {
+    firstName,
+    lastName,
+    month,
+    day,
+    year,
+    medicine,
+    strength,
+    frequency,
+    route,
+    progress,
+  } = req.body || {};
   if (!firstName || !lastName) {
     res.status(400).send("Error: Missing required fields");
   }
@@ -50,6 +61,18 @@ app.post("/patients", (req, res) => {
     id,
     firstName,
     lastName,
+    month,
+    day,
+    year,
+  };
+
+  database.prescriptions[id] = {
+    id,
+    medicine,
+    strength,
+    frequency,
+    route,
+    progress,
   };
   res.json(database.patients[id]);
 });
