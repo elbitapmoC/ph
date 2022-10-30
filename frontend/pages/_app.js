@@ -7,7 +7,7 @@ import Page from "../components/Page/Page";
 import "nprogress/nprogress.css";
 
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
 const queryClient = new QueryClient();
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -16,14 +16,14 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <ChakraProvider>
         <Page>
           <Component {...pageProps} />
         </Page>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </ChakraProvider>
+        {/* <ReactQueryDevtools /> */}
+      </ChakraProvider>
+    </QueryClientProvider>
   );
 }
 

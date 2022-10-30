@@ -37,7 +37,7 @@ export default function ProvidersPage() {
       <main className="main">
         <TableContainer>
           <Patients />
-          {data && (
+          {data.length > 0 && (
             <Table variant="simple" colorScheme="blackAlpha">
               <TableCaption>Patient Information (Providers)</TableCaption>
               <Thead>

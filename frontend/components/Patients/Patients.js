@@ -42,6 +42,8 @@ export default function Patients() {
 
   const onSubmit = (data) => {
     mutation.mutate(data);
+    console.log("mutated");
+    console.table(data);
     onClose();
   };
 

@@ -24,6 +24,7 @@ export default function Home() {
                 See patients and their prescriptions."
                   position="left"
                   imgSource="/images/provider.jpg"
+                  imgAlt="healcare providers to educate people about prevention, cures and other such tips"
                 />
               </Link>
             </GridItem>
@@ -34,6 +35,7 @@ export default function Home() {
                   label="See prescriptions and change their status' (pending, wip, or filled)"
                   position="right"
                   imgSource="/images/pharmacist.jpg"
+                  imgAlt="pharmacists to dispense prescription medications to patients and offer expertise in the safe use of prescriptions. "
                 />
               </Link>
             </GridItem>
