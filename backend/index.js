@@ -41,9 +41,12 @@ app.get("/patients/:id", (req, res) => {
 });
 
 app.patch("/prescriptions/:id", (req, res) => {
-  const patient = database.patients[req.body.id];
-  database.patients[req.body.id] = { ...patient, progress: req.body.progress };
-  res.json(database.patients[req.body.id]);
+  const prescriptions = database.prescriptions[req.body.id];
+  database.prescriptions[req.body.id] = {
+    ...prescriptions,
+    progress: req.body.progress,
+  };
+  res.json(database.prescriptions[req.body.id]);
 });
 
 app.post("/patients", (req, res) => {

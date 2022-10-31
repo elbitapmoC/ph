@@ -28,7 +28,7 @@ import { useForm } from "react-hook-form";
 
 const baseURL = "http://localhost:4000/patients";
 
-export default function Patients({ setFetchData }) {
+export default function Patients({ setProviderData }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     handleSubmit,
@@ -37,7 +37,7 @@ export default function Patients({ setFetchData }) {
   } = useForm();
 
   const mutation = useMutation((data) => {
-    setFetchData(true);
+    setProviderData(true);
     return axios.post(baseURL, data);
   });
 
@@ -147,7 +147,7 @@ export default function Patients({ setFetchData }) {
                   <GridItem w="100%">
                     <FormControl isRequired>
                       <FormLabel>Strength (mg):</FormLabel>
-                      <NumberInput max={3000} min={10}>
+                      <NumberInput max={10000} min={10} step={10}>
                         <NumberInputField
                           id="strength"
                           {...register("strength")}

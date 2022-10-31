@@ -1,5 +1,7 @@
 import { useQuery, useMutation } from "react-query";
 import axios from "axios";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 import {
   Table,
@@ -16,13 +18,24 @@ import Heading from "../components/Heading/Heading";
 const baseURL = "http://localhost:4000/prescriptions";
 let baseID = "http://localhost:4000/prescriptions/";
 export default function PharmacistsPage() {
-  const { isLoading, isError, data, error } = useQuery("prescriptionData", () =>
-    fetch(baseURL).then((res) => res.json())
+  const [prescriptionData, setPrescriptionData] = useState(false);
+
+  const { isLoading, refetch, isError, data, error } = useQuery(
+    "prescriptionData",
+    () => fetch(baseURL).then((res) => res.json())
   );
 
   const mutation = useMutation((progress) => {
+    setPrescriptionData(true);
     return axios.patch(baseID, progress);
   });
+
+  useEffect(() => {
+    if (prescriptionData) {
+      refetch();
+      setPrescriptionData(false);
+    }
+  }, [prescriptionData]);
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -46,7 +59,7 @@ export default function PharmacistsPage() {
       <Heading title={`${String.fromCodePoint(0x2624)} | Pharmacists`} />
       <main className="main">
         <TableContainer>
-          {data.length > 0 && (
+          {data.length > 0 ? (
             <Table variant="simple" colorScheme="blackAlpha">
               <TableCaption>
                 Prescription Information (Pharmacists)
@@ -90,6 +103,13 @@ export default function PharmacistsPage() {
                 )}
               </Tbody>
             </Table>
+          ) : (
+            <h2>
+              <Link href="/providers" style={{ textDecoration: "underline" }}>
+                Talk to your nearest Provider
+              </Link>
+              , we currently do not have any patients
+            </h2>
           )}
         </TableContainer>
       </main>

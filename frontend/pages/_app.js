@@ -7,7 +7,7 @@ import Page from "../components/Page/Page";
 import "nprogress/nprogress.css";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
 const queryClient = new QueryClient();
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         <Page>
           <Component {...pageProps} />
         </Page>
-        <ReactQueryDevtools />
+        {/* <ReactQueryDevtools /> */}
       </ChakraProvider>
     </QueryClientProvider>
   );
