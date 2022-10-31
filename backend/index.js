@@ -40,15 +40,10 @@ app.get("/patients/:id", (req, res) => {
   res.sendStatus(404);
 });
 
-app.patch("/prescription/:id", (req, res) => {
-  console.log("req", req);
-  console.log("res", res);
-
-  //   const todo = todos.find(todo => todo.id == req.params.id);
-  //   if (!todo) return res.sendStatus(404);
-  //   todo.completed = !todo.completed;
-  //   res.json(todo);
-  // res.sendStatus(404);
+app.patch("/prescriptions/:id", (req, res) => {
+  const patient = database.patients[req.body.id];
+  database.patients[req.body.id] = { ...patient, progress: req.body.progress };
+  res.json(database.patients[req.body.id]);
 });
 
 app.post("/patients", (req, res) => {

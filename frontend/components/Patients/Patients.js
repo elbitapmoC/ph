@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 
 import {
   FormControl,
@@ -28,7 +28,7 @@ import { useForm } from "react-hook-form";
 
 const baseURL = "http://localhost:4000/patients";
 
-export default function Patients() {
+export default function Patients({ setFetchData }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     handleSubmit,
@@ -37,8 +37,17 @@ export default function Patients() {
   } = useForm();
 
   const mutation = useMutation((data) => {
+    setFetchData(true);
     return axios.post(baseURL, data);
   });
+
+  // Mutations
+  // const mutation = useMutation(postTodo, {
+  //   onSuccess: () => {
+  //     // Invalidate and refetch
+  //     queryClient.invalidateQueries(["todos"]);
+  //   },
+  // });
 
   const onSubmit = (data) => {
     mutation.mutate(data);

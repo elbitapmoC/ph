@@ -1,4 +1,5 @@
-import { useQuery } from "react-query";
+import { useQuery, useMutation } from "react-query";
+import { useState, useEffect } from "react";
 
 import {
   Table,
@@ -16,9 +17,20 @@ import Heading from "../components/Heading/Heading";
 const baseURL = "http://localhost:4000/patients";
 
 export default function ProvidersPage() {
-  const { isLoading, isError, data, error } = useQuery("patientData", () =>
-    fetch(baseURL).then((res) => res.json())
+  const [fetchData, setFetchData] = useState(false);
+  const { isLoading, refetch, isError, data, error } = useQuery(
+    "patientData",
+    () => fetch(baseURL).then((res) => res.json())
   );
+
+  useEffect(() => {
+    if (fetchData) {
+      console.count("one");
+      refetch();
+      setFetchData(false);
+    }
+    console.count("one");
+  }, [fetchData]);
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -36,7 +48,7 @@ export default function ProvidersPage() {
       <Heading title={`${String.fromCodePoint(0x2624)} | Providers`} />
       <main className="main">
         <TableContainer>
-          <Patients />
+          <Patients setFetchData={setFetchData} />
           {data.length > 0 && (
             <Table variant="simple" colorScheme="blackAlpha">
               <TableCaption>Patient Information (Providers)</TableCaption>
