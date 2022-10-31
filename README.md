@@ -73,7 +73,6 @@ See result at: `http://localhost:3000`, have fun and enjoy!
 
 ### Future Improvements / Thoughts
 
-- React -> Svelte
 - Unit Tests
   - Pagination
   - Help users keep track of taking their daily dosage.
