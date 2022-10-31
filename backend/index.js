@@ -53,9 +53,7 @@ app.post("/patients", (req, res) => {
   const {
     firstName,
     lastName,
-    month,
-    day,
-    year,
+    dob,
     medicine,
     strength,
     frequency,
@@ -71,9 +69,7 @@ app.post("/patients", (req, res) => {
     id,
     firstName,
     lastName,
-    month: month < 10 ? 0 + month : month,
-    day: day < 10 ? 0 + day : day,
-    year,
+    dob,
   };
 
   database.prescriptions[id] = {

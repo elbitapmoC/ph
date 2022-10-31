@@ -91,44 +91,15 @@ export default function Patients({ setProviderData }) {
                   </GridItem>
                 </Grid>
 
-                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                  <GridItem w="100%">
-                    <FormControl isRequired>
-                      <FormLabel>Month</FormLabel>
-                      <NumberInput max={12} min={1}>
-                        <NumberInputField id="month" {...register("month")} />
-                        <NumberInputStepper>
-                          <NumberIncrementStepper />
-                          <NumberDecrementStepper />
-                        </NumberInputStepper>
-                      </NumberInput>
-                    </FormControl>
-                  </GridItem>
-                  <GridItem w="100%">
-                    <FormControl isRequired>
-                      <FormLabel>Day</FormLabel>
-                      <NumberInput max={31} min={1} id="day">
-                        <NumberInputField {...register("day")} />
-                        <NumberInputStepper>
-                          <NumberIncrementStepper />
-                          <NumberDecrementStepper />
-                        </NumberInputStepper>
-                      </NumberInput>
-                    </FormControl>
-                  </GridItem>
-                  <GridItem w="100%">
-                    <FormControl isRequired>
-                      <FormLabel>Year</FormLabel>
-                      <NumberInput max={2023} min={1920}>
-                        <NumberInputField id="year" {...register("year")} />
-                        <NumberInputStepper>
-                          <NumberIncrementStepper />
-                          <NumberDecrementStepper />
-                        </NumberInputStepper>
-                      </NumberInput>
-                    </FormControl>
-                  </GridItem>
-                </Grid>
+                <FormControl isRequired>
+                  <FormLabel>Enter Date of Birth:</FormLabel>
+                  <Input
+                    placeholder="Select Date and Time"
+                    type="date"
+                    id="dob"
+                    {...register("dob")}
+                  />
+                </FormControl>
                 <hr />
               </VStack>
               <ModalHeader pl={0}>Prescription Information</ModalHeader>

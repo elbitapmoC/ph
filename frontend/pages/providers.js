@@ -59,13 +59,11 @@ export default function ProvidersPage() {
                 </Tr>
               </Thead>
               <Tbody>
-                {data?.map(({ id, firstName, lastName, month, day, year }) => (
+                {data?.map(({ id, firstName, lastName, dob }) => (
                   <tr key={id}>
                     <Td>{firstName}</Td>
                     <Td>{lastName}</Td>
-                    <Td isNumeric>
-                      {month}/{day}/{year}
-                    </Td>
+                    <Td isNumeric>{dob}</Td>
                   </tr>
                 ))}
               </Tbody>
