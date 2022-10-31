@@ -54,6 +54,13 @@ export default function Patients({ setProviderData }) {
     onClose();
   };
 
+  // Gets current day.
+  //
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // getMonth() returns month from 0 to 11
+  const year = date.getFullYear();
+
   return (
     <>
       <Button onClick={onOpen} colorScheme="messenger" variant="outline" mb={6}>
@@ -98,6 +105,7 @@ export default function Patients({ setProviderData }) {
                     type="date"
                     id="dob"
                     {...register("dob")}
+                    max={`${year}-${month}-${day}`}
                   />
                 </FormControl>
                 <hr />
