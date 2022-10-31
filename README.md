@@ -1,4 +1,5 @@
 # Mission
+[PH-Dash-Home.pdf](https://github.com/elbitapmoC/ph/files/9897760/PH-Dash-Home.pdf)
 
 Create a React frontend powered by the given Node.js backend that allows users to view, create, and update patients and prescriptions. There are two groups of users that will interact with this tool, `Providers` and `Pharmacist's`
 
