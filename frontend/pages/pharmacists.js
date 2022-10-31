@@ -1,8 +1,7 @@
 import { useQuery, useMutation } from "react-query";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-
 import {
   Table,
   Thead,
@@ -19,6 +18,7 @@ const baseURL = "http://localhost:4000/prescriptions";
 
 // Will be modified for later use when we patch the progres of prescriptions
 let baseID = "http://localhost:4000/prescriptions/";
+
 export default function PharmacistsPage() {
   const [prescriptionData, setPrescriptionData] = useState(false);
 
@@ -38,19 +38,27 @@ export default function PharmacistsPage() {
   // refetch data once pharmacists updates progress for each prescription
   useEffect(() => {
     if (prescriptionData) {
+      setPrescriptionData(!prescriptionData);
       refetch();
-      setPrescriptionData(false);
     }
   }, [prescriptionData]);
 
   // Data is initially set to loading.
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <main className="main">
+        <span>Loading...</span>
+      </main>
+    );
   }
 
   // If an error is thrown, this will be set. Otherwise it’s null if the fetch request is successful.
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return (
+      <main className="main">
+        <span>Error: {error.message}</span>
+      </main>
+    );
   }
 
   // Ran when pharmacist changes the select element.
@@ -65,7 +73,9 @@ export default function PharmacistsPage() {
     };
     // mutation - https://react-query-v3.tanstack.com/guides/mutations#_top
     // allows us to create/update/delete data
-    mutation.mutate(data);
+    setTimeout(() => {
+      mutation.mutate(data);
+    }, 10);
   };
 
   return (
@@ -100,12 +110,15 @@ export default function PharmacistsPage() {
                       {/* If progress === filled, don't allow pharmacist to edit the select option. */}
                       {progress !== "filled" ? (
                         <Td>
+                          {/* Chrome defaults this field to background-color: unset.
+                          Firefox does not.*/}
                           <select
                             placeholder=""
                             onChange={(e) => {
                               setValue(e, id);
                             }}
                             value={progress}
+                            className="bg-unset"
                           >
                             <option value="pending">Pending</option>
                             <option value="wip">WIP (work in progress)</option>

@@ -1,9 +1,15 @@
 $accent: #a44816;
 
+// Font Colors
 .red {
   color: $accent;
 }
 
 .black-700 {
   color: rgba(black, 0.7);
+}
+
+// Background-colors
+.bg-unset {
+  background-color: unset;
 }

@@ -55,7 +55,6 @@ export default function Patients({ setProviderData }) {
   };
 
   // Gets current day.
-  //
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth() + 1; // getMonth() returns month from 0 to 11
@@ -63,6 +62,8 @@ export default function Patients({ setProviderData }) {
 
   return (
     <>
+      {/* Button opens modal
+      Clicking anywhere outside the modal closes it. */}
       <Button onClick={onOpen} colorScheme="messenger" variant="outline" mb={6}>
         Add Patient
       </Button>
@@ -72,6 +73,7 @@ export default function Patients({ setProviderData }) {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
+            {/* React Hook Form + Chakra UI - https://chakra-ui.com/getting-started/with-hook-form */}
             <form onSubmit={handleSubmit(onSubmit)}>
               <ModalHeader pl={0}>Patient Information</ModalHeader>
               <VStack spacing="1rem">

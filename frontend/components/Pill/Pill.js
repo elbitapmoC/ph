@@ -8,6 +8,7 @@ const Pill = ({ text, label, position, imgSource, imgAlt }) => {
       {/* For placement options look at: https://chakra-ui.com/docs/components/tooltip */}
       <Tooltip hasArrow label={label} placement={position}>
         <span className="width-auto height-auto">
+          {/* Next.js has a requirement to add in width & height for Image component. Image is still responsive 👍 */}
           <Image
             src={imgSource}
             alt={imgAlt}
@@ -25,7 +26,7 @@ const Pill = ({ text, label, position, imgSource, imgAlt }) => {
 };
 
 Pill.defaultProps = {
-  label: "Ace",
+  label: "Helpful advice",
   position: "top",
 };
 

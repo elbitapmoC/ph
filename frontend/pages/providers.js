@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "react-query";
+import { useQuery } from "react-query";
 import { useState, useEffect } from "react";
 
 import {
@@ -32,11 +32,19 @@ export default function ProvidersPage() {
   }, [providerData]);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <main className="main">
+        <span>Loading...</span>
+      </main>
+    );
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return (
+      <main className="main">
+        <span>Error: {error.message}</span>
+      </main>
+    );
   }
 
   // Cost of poor prescription writing === 1.3M injured & 7,000 deaths.
