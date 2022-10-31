@@ -50,9 +50,8 @@ In order to run the backend, you must follow these steps:
 - Testing
   - Tested on multiple devices-- Windows Laptops & Macbooks, testing on local devices as well as mobile devices.
   - Had a few other developers test out on their device to see if the instructions were clear and if they had the same results as my local machine.
-  - Options for CSS--
-    - global style for everything..
-    - BEM, Atomic, ITCSS
+  - SCSS
+    - Atomic / ITCSS File Structure
     - CSS Modules, setup for scaling the app.
     
 ### How to run app & test
