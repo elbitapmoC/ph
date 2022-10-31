@@ -46,12 +46,12 @@ In order to run the backend, you must follow these steps:
   - Utility-first CSS framework
   - Responsive
   - UI / Visuals 👍
+- [React Query](https://react-query-v3.tanstack.com/) - Simplifies the way we fetch, cache and syncronize data from a server.
 - Testing
   - Tested on multiple devices-- Windows Laptops & Macbooks, testing on local devices as well as mobile devices.
   - Had a few other developers test out on their device to see if the instructions were clear and if they had the same results as my local machine.
-  - Options for CSS--
-    - global style for everything..
-    - BEM, Atomic, ITCSS
+  - SCSS
+    - Atomic / ITCSS File Structure
     - CSS Modules, setup for scaling the app.
     
 ### How to run app & test
@@ -73,7 +73,6 @@ See result at: `http://localhost:3000`, have fun and enjoy!
 
 ### Future Improvements / Thoughts
 
-- React -> Svelte
 - Unit Tests
   - Pagination
   - Help users keep track of taking their daily dosage.
