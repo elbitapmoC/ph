@@ -46,6 +46,7 @@ In order to run the backend, you must follow these steps:
   - Utility-first CSS framework
   - Responsive
   - UI / Visuals 👍
+- [React Query](https://react-query-v3.tanstack.com/) - Simplifies the way we fetch, cache and syncronize data from a server.
 - Testing
   - Tested on multiple devices-- Windows Laptops & Macbooks, testing on local devices as well as mobile devices.
   - Had a few other developers test out on their device to see if the instructions were clear and if they had the same results as my local machine.
