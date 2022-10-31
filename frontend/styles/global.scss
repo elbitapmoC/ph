@@ -1,11 +1,13 @@
+// Setting up for scalability
+
 // Containers
-@import './Layout/containers.scss';
+@import "./Layout/containers.scss";
 
 // Spacing - Padding & Margin
-@import './Spacing/margin.scss';
-@import './Spacing/padding.scss';
+@import "./Spacing/margin.scss";
+@import "./Spacing/padding.scss";
 
 // Typography
-@import './Typography/color.scss';
-@import './Typography/size.scss';
-@import './Typography/transform.scss';
+@import "./Typography/color.scss";
+@import "./Typography/size.scss";
+@import "./Typography/transform.scss";

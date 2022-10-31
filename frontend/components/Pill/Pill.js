@@ -7,7 +7,7 @@ const Pill = ({ text, label, position, imgSource, imgAlt }) => {
     <section className="flex items-center flex-col">
       {/* For placement options look at: https://chakra-ui.com/docs/components/tooltip */}
       <Tooltip hasArrow label={label} placement={position}>
-        <span style={{ width: "auto", height: "auto" }}>
+        <span className="width-auto height-auto">
           <Image
             src={imgSource}
             alt={imgAlt}

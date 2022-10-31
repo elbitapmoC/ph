@@ -46,6 +46,7 @@ export default function ProvidersPage() {
     <>
       <Heading title={`${String.fromCodePoint(0x2624)} | Providers`} />
       <main className="main">
+        {/* Chakra UI - Tables | https://chakra-ui.com/docs/components/table */}
         <TableContainer>
           <Patients setProviderData={setProviderData} />
           {data.length > 0 && (
