@@ -65,14 +65,16 @@ export default function ProvidersPage() {
                   <Th>First Name</Th>
                   <Th>Last Name</Th>
                   <Th>Date of Birth</Th>
+                  <Th>Progress</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                {data?.map(({ id, firstName, lastName, dob }) => (
+                {data?.map(({ id, firstName, lastName, dob, progress }) => (
                   <tr key={id}>
                     <Td>{firstName}</Td>
                     <Td>{lastName}</Td>
                     <Td isNumeric>{dob}</Td>
+                    <Td>{progress}</Td>
                   </tr>
                 ))}
               </Tbody>

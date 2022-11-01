@@ -70,6 +70,7 @@ app.post("/patients", (req, res) => {
     firstName,
     lastName,
     dob,
+    progress,
   };
 
   database.prescriptions[id] = {
