@@ -73,7 +73,7 @@ See result at: `http://localhost:3000`, have fun and enjoy!
 
 ### Future Improvements / Thoughts
 
-- Unit Tests
+  - Unit Tests
   - Pagination
   - Help users keep track of taking their daily dosage.
     - Help them understand the effects of the medicine (positive and negative)
